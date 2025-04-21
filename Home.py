@@ -2,10 +2,13 @@ import streamlit as st
 import re
 import joblib
 import streamlit.components.v1 as components
+import gzip
 
 # Load vectorizer and model
 vectorizer = joblib.load("vectorizer.pkl")
-model = joblib.load("model.pkl")
+with gzip.open("model_compressed.pkl.gz", "rb") as f:
+    model = joblib.load(f)
+
 
 # Preprocess input
 def preprocess_text(text):
