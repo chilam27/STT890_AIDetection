@@ -9,7 +9,6 @@ vectorizer = joblib.load("vectorizer.pkl")
 with gzip.open("model_compressed.pkl.gz", "rb") as f:
     model = joblib.load(f)
 
-
 # Preprocess input
 def preprocess_text(text):
     text = text.lower()
