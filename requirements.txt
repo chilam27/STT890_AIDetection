@@ -1,7 +1,6 @@
 streamlit
+mlflow
 scikit-learn
 pandas
 numpy
 joblib
-nltk
-mlflow
