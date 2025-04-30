@@ -1,11 +1,18 @@
+import os, mlflow
+
+# Set up MLflow tracking
+MLRUNS_DIR = "/tmp/mlruns"
+os.makedirs(MLRUNS_DIR, exist_ok=True)
+
+mlflow.set_tracking_uri(f"file://{MLRUNS_DIR}")
+mlflow.set_experiment("ai-text-monitoring")
+
 import streamlit as st
 import re
 import joblib
 import streamlit.components.v1 as components
 import gzip
-import mlflow
 import time
-import os
 
 # Load vectorizer and model
 vectorizer = joblib.load("vectorizer.pkl")
@@ -19,14 +26,6 @@ def preprocess_text(text):
     text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
-
-# Set up MLflow tracking
-MLRUNS_DIR = "/tmp/mlruns"
-os.makedirs(MLRUNS_DIR, exist_ok=True)
-
-TRACK_URI = os.getenv("MLFLOW_TRACKING_URI", f"file://{MLRUNS_DIR}")
-mlflow.set_tracking_uri(TRACK_URI)
-mlflow.set_experiment("ai-text-monitoring")
 
 # Page title
 st.title("Human vs AI Text Classifier")
