@@ -29,6 +29,7 @@ def preprocess_text(text):
 
 # Page title
 st.title("Human vs AI Text Classifier")
+st.info("For the best result, please enter text containing **at least 350 words**.")
 
 # Input
 text = st.text_area("Paste your text here:")
