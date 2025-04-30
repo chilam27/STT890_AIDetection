@@ -17,6 +17,6 @@ RUN mkdir -p /app/mlruns
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app.py", \
+CMD ["streamlit", "run", "streamlit_app.py", \
      "--server.port=8501", \
      "--server.enableCORS=false"]
