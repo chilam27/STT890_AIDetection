@@ -1,14 +1,15 @@
-import streamlit as st
-import pandas as pd
-import mlflow
-
-st.title("Model Monitoring")
+import os, mlflow
 
 MLRUNS_DIR = "/tmp/mlruns"
 os.makedirs(MLRUNS_DIR, exist_ok=True)
 
 mlflow.set_tracking_uri(f"file://{MLRUNS_DIR}")
 mlflow.set_experiment("ai-text-monitoring")
+
+import streamlit as st
+import pandas as pd
+
+st.title("Model Monitoring")
 
 # Fetch the last 500 inference runs
 exp = mlflow.get_experiment_by_name("ai-text-monitoring")
