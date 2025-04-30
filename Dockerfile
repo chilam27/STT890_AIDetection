@@ -12,9 +12,7 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
-
-RUN mkdir -p /app/mlruns
-
+ 
 EXPOSE 8501
 
 CMD ["streamlit", "run", "streamlit_app.py", \
