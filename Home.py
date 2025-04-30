@@ -21,7 +21,10 @@ def preprocess_text(text):
     return text
 
 # Set up MLflow tracking
-TRACK_URI = os.getenv("MLFLOW_TRACKING_URI", "file:///app/mlruns")
+MLRUNS_DIR = "/tmp/mlruns"
+os.makedirs(MLRUNS_DIR, exist_ok=True)
+
+TRACK_URI = os.getenv("MLFLOW_TRACKING_URI", f"file://{MLRUNS_DIR}")
 mlflow.set_tracking_uri(TRACK_URI)
 mlflow.set_experiment("ai-text-monitoring")
 
