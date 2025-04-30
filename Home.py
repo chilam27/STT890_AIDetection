@@ -27,7 +27,6 @@ mlflow.set_experiment("ai-text-monitoring")
 
 # Page title
 st.title("Human vs AI Text Classifier")
-st.write("For the best result, please enter text containing at least 350 words.")
 
 # Input
 text = st.text_area("Paste your text here:")
